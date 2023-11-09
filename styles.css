@@ -22,12 +22,6 @@ aside {
   font-size: 30px;
 }
 
-.view {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 h1 {
   font-size: 78px;
   margin: 20px;
@@ -37,7 +31,36 @@ h1 {
 h2 {
   margin: 0;
   font-size: 50px;
-  font-family:
+}
+
+.view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.classic-fighters-container, .difficult-fighters-container {
+  margin: 120px;
+}
+
+.difficult-fighters-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.difficult-fighters, .classic-fighters {
+  width: 180px;
+  margin: 20px;
+}
+
+.difficult-fighters:hover, .classic-fighters:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 .main-buttons {
