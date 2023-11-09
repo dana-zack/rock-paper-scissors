@@ -3,6 +3,7 @@ body {
   background-color: rgb(31, 31, 59);
   color: white;
   height: 883px;
+  font-family: Georgia;
 }
 
 main {
@@ -18,11 +19,8 @@ aside {
   flex-direction: column;
   align-items: center;
   width: 20%;
-  /* height: 850px; */
   font-size: 30px;
 }
-
-
 
 .view {
   display: flex;
@@ -31,13 +29,15 @@ aside {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 78px;
   margin: 20px;
+  color: rgb(186, 86, 154);
 }
 
 h2 {
   margin: 0;
   font-size: 50px;
+  font-family:
 }
 
 .main-buttons {
@@ -45,24 +45,31 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: Georgia;
   border-radius: 1em;
   border: none;
-  background-color: #4c81ac;
+  background-color: rgb(47, 109, 118);
   color: white;
-  width: 250px;
-  height: 150px;
+  width: 270px;
+  height: 170px;
   margin-top: 120px;
+  font-size: 18px;
 }
 
 .main-buttons:hover {
-  background-color: #07467a;
+  background-color: rgb(144, 107, 132);
 }
 
 .main-button-title {
   font-size: 30px;
 }
 
+.player-icons {
+  font-size: 65px;
+  margin: 20px 0 0 0;
+}
+
 #main-btn-2 {
-  height: 190px;
+  height: 210px;
   margin-top: 60px;
 }
