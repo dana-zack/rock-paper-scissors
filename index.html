@@ -7,38 +7,65 @@
   </head>
   <body>
     <aside class="left-display">
-      <h4>👩🏻</h4>
-      <h4>Human</h4>
-      <p>Wins: 0</p>
+      <p class="player-icons">👩🏽</p>
+      <h2>Human</h2>
+      <p class="wins">Wins: 0</p>
+      <button type="button" class="change-game-btn">CHANGE GAME?</button>
     </aside>
     <main>
-      <h1>Rock, Paper, Scissors</h1>
-      <section class="view select-game-view hidden">
-        <h2>Choose your game!</h2>
-        <section class="game-type classic-game">
-          <h3>🪨 CLASSIC ✂️</h3>
-          <p>rock > scissors</p>
-          <p>paper > rock</p>
-          <p>scissors > paper</p>
-        </section>
-        <section class="game-type difficult-game">
-          <h3>🦎 DIFFICULT 👽</h3>
-          <p>rock > scissors & lizard</p>
-          <p>paper > rock & alien</p>
-          <p>scissors > paper & lizard</p>
-          <p>lizard > paper & alien</p>
-          <p>alien > scissors & rock</p>
-        </section>
+      <h1>ROCK, PAPER, SCISSORS</h1>
+      <section class="view main-view">
+        <h2>Choose your game:</h2>
+        <button type="button" id="main-btn-1" class="main-buttons">
+          <span class="main-button-title">🪨 CLASSIC ✂️</span>
+          <br>rock > scissors
+          <br>paper > rock
+          <br>scissors > paper
+        </button>
+        <button type="button" id="main-btn-2" class="main-buttons">
+          <span class="main-button-title">🦎 DIFFICULT 👽</span>
+          <br>rock > scissors & lizard
+          <br>paper > rock & alien
+          <br>scissors > paper & lizard
+          <br>lizard > paper & alien
+          <br>alien > scissors & rock
+        </button>
       </section>
-      <section class="view select-fighter hidden">
+      <section class="view select-classic-fighter-view hidden">
+        <h2>Select your fighter:</h2>
+        <div class="classic-fighters-container">
+          <img class="classic-fighters" src="assets/rock.png" alt="rock">
+          <img class="classic-fighters" src="assets/happy-paper.png" alt="paper">
+          <img class="classic-fighters" src="assets/happy-scissors.png" alt="scissors">
+        </div>
       </section>
-      <section class="view declare-winner hidden">
+      <section class="view select-difficult-fighter-view hidden">
+        <h2>Select your fighter:</h2>
+        <div class="difficult-fighters-container">
+          <div class="difficult-fighters-group-1">
+            <img class="difficult-fighters" src="assets/rock.png" alt="rock">
+            <img class="difficult-fighters" src="assets/happy-paper.png" alt="paper">
+            <img class="difficult-fighters" src="assets/happy-scissors.png" alt="scissors">
+          </div>
+          <div class="difficult-fighters-group-2">
+            <img class="difficult-fighters" src="assets/lizard.png" alt="lizard">
+            <img class="difficult-fighters" src="assets/happy-alien.png" alt="alien">
+          </div>
+        </div>
+      </section>
+      <section class="view battle-view hidden">
+        <h2 class="declare-winner">
+          <!-- declation of winner will appear here -->
+        </h2>
+        <div class="battle-container">
+          <!-- selected fighters will appear here (apply class to img of "selected-fighters") when inserting inner.HTML -->
+        </div>
       </section>
     </main>
-    <aside class="right-display">
-      <h4>💻</h4>
-      <h4>Computer</h4>
-      <p>Wins: 0</p>
+    <aside class="left-display">
+      <p class="player-icons">💻</p>
+      <h2>Computer</h2>
+      <p class="wins">Wins: 0</p>
     </aside>
     <script type="text/javascript" src="main.js"></script>
   </body>
