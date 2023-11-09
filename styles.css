@@ -1,9 +1,8 @@
 body {
   display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: rgb(31, 31, 59);
   color: white;
+  height: 883px;
 }
 
 main {
@@ -11,7 +10,6 @@ main {
   flex-direction: column;
   align-items: center;
   width: 60%;
-  height: 850px;
 }
 
 aside {
@@ -20,8 +18,11 @@ aside {
   flex-direction: column;
   align-items: center;
   width: 20%;
-  height: 850px;
+  /* height: 850px; */
+  font-size: 30px;
 }
+
+
 
 .view {
   display: flex;
@@ -30,51 +31,38 @@ aside {
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 80px;
   margin: 20px;
 }
 
 h2 {
-  margin: auto;
-  font-size: 30px;
-  margin-bottom: 50px;
-}
-
-h3 {
-  margin: 0px;
-  font-size: 30px;
-}
-
-h4 {
-  font-size: 30px;
-  margin: 10px;
-}
-
-p {
   margin: 0;
+  font-size: 50px;
 }
 
-.left-display {
- /* border-right: solid 8px black; */
-}
-
-.right-display {
-  /* border-left: solid 8px black; */
-}
-
-.game-type {
+.main-buttons {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 1em;
+  border: none;
   background-color: #4c81ac;
-  margin: 60px;
+  color: white;
   width: 250px;
   height: 150px;
+  margin-top: 120px;
 }
 
-.game-type:hover {
+.main-buttons:hover {
   background-color: #07467a;
 }
 
+.main-button-title {
+  font-size: 30px;
+}
+
+#main-btn-2 {
+  height: 190px;
+  margin-top: 60px;
+}
