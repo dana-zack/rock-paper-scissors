@@ -30,14 +30,14 @@
           <br>alien > scissors & rock
         </button>
       </section>
-      <section class="view select-classic-fighter-view">
+      <section class="view select-classic-fighter-view hidden">
         <h2>Select your fighter:</h2>
         <div class="classic-fighters-container">
           <img class="classic-fighters" src="assets/rock.png" alt="rock">
           <img class="classic-fighters" src="assets/happy-paper.png" alt="paper">
           <img class="classic-fighters" src="assets/happy-scissors.png" alt="scissors">
         </div>
-        </section>
+      </section>
       <section class="view select-difficult-fighter-view hidden">
         <h2>Select your fighter:</h2>
         <div class="difficult-fighters-container">
@@ -52,7 +52,13 @@
           </div>
         </div>
       </section>
-      <section class="view declare-winner hidden">
+      <section class="view battle-view">
+        <h2 class="declare-winner">
+          <!-- declation of winner will appear here -->
+        </h2>
+        <div class="battle-container">
+          <!-- selected fighters will appear here (apply class to img of "selected-fighters") when inserting inner.HTML -->
+        </div>
       </section>
     </main>
     <aside class="left-display">

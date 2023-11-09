@@ -23,7 +23,7 @@ aside {
 }
 
 h1 {
-  font-size: 78px;
+  font-size: 70px;
   margin: 20px;
   color: rgb(186, 86, 154);
 }
@@ -39,8 +39,8 @@ h2 {
   align-items: center;
 }
 
-.classic-fighters-container, .difficult-fighters-container {
-  margin: 120px;
+.classic-fighters-container, .difficult-fighters-container, .battle-container {
+  margin: 140px;
 }
 
 .difficult-fighters-container {
@@ -49,7 +49,7 @@ h2 {
   align-items: center;
 }
 
-.difficult-fighters, .classic-fighters {
+.difficult-fighters, .classic-fighters, .selected-fighters {
   width: 180px;
   margin: 20px;
 }
