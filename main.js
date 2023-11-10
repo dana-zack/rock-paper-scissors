@@ -1,19 +1,14 @@
 // VARIABLES
 var player1 = createPlayer("human", "👩🏽");
 var player2 = createPlayer("Computer", "💻");
-// var fighter1 = player1.fighter;
-// var fighter2 = player2.fighter;
-var classicGame = selectGameType("classic");
-var difficultGame = selectGameType("difficult");
+var classicGame = createGame(player1, player2, "classic");
+var difficultGame = createGame(player1, player2, "difficult");
 var classicFighters = ["rock", "paper", "scissors"]
 var difficultFighters = ["rock", "paper", "scissors", "lizzard", "alien"]
-// var fighter1 = player1.fighter;
-// var fighter2 = player2.fighter;
-
-
-
-// EVENT LISTENERS
-
+var p1ClassicFighter = classicGame.opponent[0].fighter;
+var p2ClassicFighter = classicGame.opponent[1].fighter;
+var p1DifficultFighter = difficultGame.opponent[0].fighter;
+var p2DifficultFighter = difficultGame.opponent[1].fighter
 
 
 // FUNCTIONS
@@ -26,11 +21,10 @@ function createPlayer(name, token, wins = 0) {
   return player;
 }
 
-function createGame(player1, player2, gameType, fighters) {
+function createGame(player1, player2, gameType) {
   var game = {
     opponents: [player1, player2],
     gameType,
-    fighters
   }
   return game;
 }
@@ -38,20 +32,19 @@ function createGame(player1, player2, gameType, fighters) {
 //will put event listener on this function
 //will need to tell DOM to display appropriate gameType view in HTML based on what was selected
 function selectGameType(gameType) {
-  var fighterOptions;
   if (gameType === "classic") {
-    fighterOptions = classicFighters;
+    classicGame.fighters = classicFighters;
+    return classicGame;
   } else {
-    fighterOptions = difficultFighters;
+    difficultGame.fighters = difficultFighters;
+    return difficultGame;
   }
-  var createdGame = createGame(player1, player2, gameType, fighterOptions)
-  return createdGame
 }
 
-// console.log(selectGameType("classic"))
-// console.log(selectGameType("difficult"))
+console.log(selectGameType("classic"))
+console.log(selectGameType("difficult"))
 
-// ============================================================
+// ==============================================================
 
 function getRandomFighter(fighters) {
   return fighters[Math.floor(Math.random() * fighters.length)];
@@ -59,43 +52,38 @@ function getRandomFighter(fighters) {
 
 function humanSelectsClassicFighter(fighter) {
   classicGame.opponents[0].fighter = fighter;
-  return classicGame;
 }
 
 function humanSelectsDifficultFighter(fighter) {
   difficultGame.opponents[0].fighter = fighter;
-  return difficultGame;
 }
 
 function computerSelectsClassicFighter() {
   classicGame.opponents[1].fighter = getRandomFighter(classicFighters);
-  return classicGame;
 }
 
 function computerSelectsDifficultFighter() {
   difficultGame.opponents[1].fighter = getRandomFighter(difficultFighters);
-  return difficultGame;
 }
 
-function SelectClassicFighters() {
-  classicGame.fighters = classicFighters;
+// ==============================================================
+
+function selectClassicFighters() {
   humanSelectsClassicFighter("rock");
   computerSelectsClassicFighter();
-  return classicGame
 }
 
-function SelectDifficultFighters() {
-  difficultGame.fighters = difficultFighters;
+function selectDifficultFighters() {
   humanSelectsDifficultFighter("alien");
   computerSelectsDifficultFighter();
-  return difficultGame;
 }
 
-// selectGameType("classic")
-console.log(SelectClassicFighters())
-console.log(SelectDifficultFighters())
+// selectClassicFighters()
+// console.log(classicGame)
+selectDifficultFighters()
+console.log(difficultGame)
 
-
+// ===============================================================
 
 // function determineWinner (player1, player2) {
 //   if ((player1.fighter === "rock" && player2.fighter === ("scissors" || "lizzard")) ||
@@ -130,7 +118,6 @@ console.log(SelectDifficultFighters())
 
 
 
-
 /*
 Final product will have 3 event listeners
   - one for selecting game (event listener on both game buttons which will invoke the function
@@ -140,22 +127,72 @@ Final product will have 3 event listeners
 */
 
 
-// playGame(player1, player2, classicGame);
-// console.log(player1)
-// console.log(player2)
 
-// selectGameType("difficult")
-// playGame(player1, player2, difficultGame);
-// console.log(player1)
-// console.log(player2)
 
-// selectGameType("difficult")
-// playGame(player1, player2, "difficult");
-// console.log(player1)
-// console.log(player2)
-// playGame(player1, player2, "difficult");
-// console.log(player1)
-// console.log(player2)
-// playGame(player1, player2, "difficult");
-// console.log(player1)
-// console.log(player2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // VARIABLES
+// var player1 = createPlayer("human", "👩🏽");
+// var player2 = createPlayer("Computer", "💻");
+// var opponents = [player1, player2]
+// var classicGame = selectGameType("classic");
+// var difficultGame = selectGameType("difficult");
+// var classicFighters = ["rock", "paper", "scissors"]
+// var difficultFighters = ["rock", "paper", "scissors", "lizzard", "alien"]
+
+// function createPlayer(name, token, wins = 0) {
+//   var player = {
+//     name,
+//     token,
+//     wins,
+//   };
+//   return player;
+// }
+
+// function createGame(opponents, gameType) {
+//   var game = {
+//     opponents,
+//     gameType,
+//   }
+//   return game;
+// }
+
+// //will put event listener on this function
+// //will need to tell DOM to display appropriate gameType view in HTML based on what was selected
+// function selectGameType(gameType) {
+//   if (gameType === "classic") {
+//     for (var i = 0; i < opponents.length; i++) {
+//       opponents[i].fighterOptions = classicFighters;
+//     }
+//   } else {
+//     for (var i = 0; i < opponents.length; i++) {
+//       opponents[i].fighterOptions = difficultFighters;
+//     }
+//   }
+//   var createdGame = createGame(opponents, gameType);
+//   return createdGame;
+// }
+
+// console.log(selectGameType("classic"))
+// console.log(selectGameType("difficult"))
