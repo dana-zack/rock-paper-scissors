@@ -101,6 +101,7 @@ h2 {
 .change-game-btn:hover {
   background-color: rgb(144, 107, 132);
   transform: scale(1.2);
+  cursor: pointer;
 }
 
 .player-icons {
