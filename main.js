@@ -1,9 +1,55 @@
 // VARIABLES
 var human = createPlayer("human", "👩🏽");
 var computer = createPlayer("Computer", "💻");
-var round = createGame(human, computer)
+var game = createGame(human, computer)
 var classicFighters = ["rock", "paper", "scissors"]
 var difficultFighters = ["rock", "paper", "scissors", "lizzard", "alien"]
+var classicBtn = document.querySelector('#classic-button')
+var difficultBtn = document.querySelector('#difficult-button')
+var mainView = document.querySelector('.main-view')
+var classicView = document.querySelector('.classic-view')
+var difficultView = document.querySelector('.difficult-view')
+var classicContainer = document.querySelector('.classic-fighters-container')
+var difficultContainer = document.querySelector('.difficult-fighters-container')
+
+
+
+// EVENT LISTENERS
+
+window.onload = (event) => {
+  createGame(human, computer);
+  console.log(game)
+};
+
+classicBtn.addEventListener('click', function() {
+  updateClassicFighters();
+  hide(mainView);
+  show(classicView);
+  console.log(game)
+})
+
+difficultBtn.addEventListener('click', function() {
+  updateDifficultFighters();
+  hide(mainView);
+  show(difficultView);
+  console.log(game)
+})
+
+classicContainer.addEventListener('click', function(event) {
+  if (event.target.classList.contains("fighters")) {
+    game.humanFighter = event.target.alt
+    console.log("classic!");
+    console.log(game)
+  }
+});
+
+difficultContainer.addEventListener('click', function(event) {
+  if (event.target.classList.contains("fighters")) {
+    game.humanFighter = event.target.alt
+    console.log("difficult!");
+    console.log(game)
+  }
+});
 
 
 // FUNCTIONS
@@ -28,22 +74,26 @@ function createGame(human, computer) {
   return game;
 }
 
-//will put event listener on this function
-//will need to tell DOM to display appropriate gameType view in HTML based on what was selected
-function selectGameType(gameType, round) {
-  round.gameType = gameType;
-  if (gameType === "classic") {
-    round.fighterOptions = classicFighters;
-  } else {
-    round.fighterOptions = difficultFighters;
-  }
-  return round;
+function hide(element) {
+  element.classList.add("hidden")
 }
 
-// selectGameType("classic", round)
-// console.log(round)
-// selectGameType("difficult", round)
-// console.log(round)
+function show(element) {
+  element.classList.remove("hidden")
+}
+
+function updateClassicFighters() {
+  game.gameType = "classic"
+  game.fighterOptions = classicFighters;
+  return game
+}
+
+function updateDifficultFighters() {
+  game.gameType = "difficult"
+  game.fighterOptions = difficultFighters;
+  return game
+}
+
 
 // ==============================================================
 
