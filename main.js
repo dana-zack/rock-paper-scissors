@@ -9,10 +9,6 @@ var difficultBtn = document.querySelector('#difficult-button')
 var mainView = document.querySelector('.main-view')
 var classicView = document.querySelector('.classic-view')
 var difficultView = document.querySelector('.difficult-view')
-var classicContainer = document.querySelector('.classic-fighters-container')
-var difficultContainer = document.querySelector('.difficult-fighters-container')
-
-
 
 // EVENT LISTENERS
 
@@ -22,20 +18,20 @@ window.onload = (event) => {
 };
 
 classicBtn.addEventListener('click', function() {
-  updateClassicFighters();
+  updateClassicGame();
   hide(mainView);
   show(classicView);
   console.log(game)
 })
 
 difficultBtn.addEventListener('click', function() {
-  updateDifficultFighters();
+  updateDifficultGame();
   hide(mainView);
   show(difficultView);
   console.log(game)
 })
 
-classicContainer.addEventListener('click', function(event) {
+classicView.addEventListener('click', function(event) {
   if (event.target.classList.contains("fighters")) {
     game.humanFighter = event.target.alt
     console.log("classic!");
@@ -43,14 +39,13 @@ classicContainer.addEventListener('click', function(event) {
   }
 });
 
-difficultContainer.addEventListener('click', function(event) {
+difficultView.addEventListener('click', function(event) {
   if (event.target.classList.contains("fighters")) {
     game.humanFighter = event.target.alt
     console.log("difficult!");
     console.log(game)
   }
 });
-
 
 // FUNCTIONS
 function createPlayer(name, token, wins = 0) {
@@ -82,13 +77,13 @@ function show(element) {
   element.classList.remove("hidden")
 }
 
-function updateClassicFighters() {
+function updateClassicGame() {
   game.gameType = "classic"
   game.fighterOptions = classicFighters;
   return game
 }
 
-function updateDifficultFighters() {
+function updateDifficultGame() {
   game.gameType = "difficult"
   game.fighterOptions = difficultFighters;
   return game
