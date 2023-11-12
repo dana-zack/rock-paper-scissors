@@ -4,10 +4,9 @@ var computer = createPlayer("Computer", "💻");
 var game = createGame(human, computer)
 var classicFighters = ["rock", "paper", "scissors"]
 var difficultFighters = ["rock", "paper", "scissors", "lizzard", "alien"]
-var mainBtns = document.querySelectorAll(".main-buttons")
-var classicBtn = document.querySelector('#classic-button')
-var difficultBtn = document.querySelector('#difficult-button')
+var allViews = document.querySelector(".view")
 var mainView = document.querySelector('.main-view')
+var fighterView = document.querySelector('.fighter-view')
 var classicView = document.querySelector('.classic-view')
 var difficultView = document.querySelector('.difficult-view')
 
@@ -29,21 +28,21 @@ mainView.addEventListener('click', function(event) {
   console.log(game)
 })
 
-// classicView.addEventListener('click', function(event) {
-//   if (event.target.classList.contains("fighters")) {
-//     game.humanFighter = event.target.alt
-//     console.log("classic!");
-//     console.log(game)
-//   }
-// });
+classicView.addEventListener('click', function(event) {
+  if (event.target.classList.contains("fighters")) {
+        game.humanFighter = event.target.alt
+        game.computerFighter = getRandomFighter(game.fighterOptions)
+        console.log(game)
+  }
+}) 
 
-// difficultView.addEventListener('click', function(event) {
-//   if (event.target.classList.contains("fighters")) {
-//     game.humanFighter = event.target.alt
-//     console.log("difficult!");
-//     console.log(game)
-//   }
-// });
+difficultView.addEventListener('click', function(event) {
+  if (event.target.classList.contains("fighters")) {
+        game.humanFighter = event.target.alt
+        game.computerFighter = getRandomFighter(game.fighterOptions)
+        console.log(game)
+  }
+}) 
 
 
 // FUNCTIONS
