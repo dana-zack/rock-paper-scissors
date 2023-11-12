@@ -49,12 +49,12 @@ h2 {
   align-items: center;
 }
 
-.difficult-fighters, .classic-fighters, .selected-fighters {
+.fighters, .selected-fighters {
   width: 180px;
   margin: 20px;
 }
 
-.difficult-fighters:hover, .classic-fighters:hover {
+.fighters:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
