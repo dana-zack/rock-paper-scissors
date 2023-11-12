@@ -4,6 +4,7 @@ var computer = createPlayer("Computer", "💻");
 var game = createGame(human, computer)
 var classicFighters = ["rock", "paper", "scissors"]
 var difficultFighters = ["rock", "paper", "scissors", "lizzard", "alien"]
+var mainBtns = document.querySelectorAll(".main-buttons")
 var classicBtn = document.querySelector('#classic-button')
 var difficultBtn = document.querySelector('#difficult-button')
 var mainView = document.querySelector('.main-view')
@@ -14,38 +15,36 @@ var difficultView = document.querySelector('.difficult-view')
 
 window.onload = (event) => {
   createGame(human, computer);
-  console.log(game)
 };
 
-classicBtn.addEventListener('click', function() {
-  updateClassicGame();
+mainView.addEventListener('click', function(event) {
   hide(mainView);
-  show(classicView);
+  if (event.target.id === "classic-button") {
+    updateClassicGame();
+    show(classicView);
+  } else if (event.target.id === "difficult-button") {
+    updateDifficultGame();
+    show(difficultView);
+  }
   console.log(game)
 })
 
-difficultBtn.addEventListener('click', function() {
-  updateDifficultGame();
-  hide(mainView);
-  show(difficultView);
-  console.log(game)
-})
+// classicView.addEventListener('click', function(event) {
+//   if (event.target.classList.contains("fighters")) {
+//     game.humanFighter = event.target.alt
+//     console.log("classic!");
+//     console.log(game)
+//   }
+// });
 
-classicView.addEventListener('click', function(event) {
-  if (event.target.classList.contains("fighters")) {
-    game.humanFighter = event.target.alt
-    console.log("classic!");
-    console.log(game)
-  }
-});
+// difficultView.addEventListener('click', function(event) {
+//   if (event.target.classList.contains("fighters")) {
+//     game.humanFighter = event.target.alt
+//     console.log("difficult!");
+//     console.log(game)
+//   }
+// });
 
-difficultView.addEventListener('click', function(event) {
-  if (event.target.classList.contains("fighters")) {
-    game.humanFighter = event.target.alt
-    console.log("difficult!");
-    console.log(game)
-  }
-});
 
 // FUNCTIONS
 function createPlayer(name, token, wins = 0) {
