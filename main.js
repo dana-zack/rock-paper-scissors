@@ -1,13 +1,14 @@
 // VARIABLES
 var human = createPlayer("human", "👩🏽");
 var computer = createPlayer("Computer", "💻");
-var game = createGame(human, computer)
-var classicFighters = ["rock", "paper", "scissors"]
-var difficultFighters = ["rock", "paper", "scissors", "lizzard", "alien"]
-var homeView = document.querySelector('.home-view')
-var classicView = document.querySelector('.classic-view')
-var difficultView = document.querySelector('.difficult-view')
-var main = document.querySelector('main')
+var game = createGame(human, computer);
+var classicFighters = ["rock", "paper", "scissors"];
+var difficultFighters = ["rock", "paper", "scissors", "lizzard", "alien"];
+var homeView = document.querySelector('.home-view');
+var classicView = document.querySelector('.classic-view');
+var difficultView = document.querySelector('.difficult-view');
+var main = document.querySelector('main');
+var fighterView = document.querySelector('.fighter-view');
 
 // EVENT LISTENERS
 
@@ -16,14 +17,10 @@ homeView.addEventListener('click', function(event) {
   updateGame(event);
 })
 
-main.addEventListener('click', function(event) {
-  if (event.target.classList.contains("fighters")) {
-        game.humanFighter = event.target.alt;
-        game.computerFighter = getRandomFighter(game.fighterOptions);
-        console.log(game);
-  }
+fighterView.addEventListener('click', function(event) {
+  hide(fighterView)
+  selectFighters(event)
 })
-
 
 // FUNCTIONS
 function createPlayer(name, token, wins = 0) {
@@ -72,6 +69,13 @@ function getRandomFighter(fighters) {
   return fighters[Math.floor(Math.random() * fighters.length)];
 }
 
+function selectFighters(event) {
+  if (event.target.classList.contains("fighters")) {
+    game.humanFighter = event.target.alt;
+    game.computerFighter = getRandomFighter(game.fighterOptions);
+    console.log(game);
+  }
+}
 
 
 
