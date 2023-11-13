@@ -82,6 +82,7 @@ h2 {
 .main-buttons:hover {
   background-color: rgb(144, 107, 132);
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .main-button-title {
