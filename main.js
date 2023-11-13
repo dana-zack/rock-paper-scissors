@@ -4,48 +4,55 @@ var computer = createPlayer("Computer", "💻");
 var game = createGame(human, computer)
 var classicFighters = ["rock", "paper", "scissors"]
 var difficultFighters = ["rock", "paper", "scissors", "lizzard", "alien"]
-var classicBtn = document.querySelector('#classic-button')
-var difficultBtn = document.querySelector('#difficult-button')
-var mainView = document.querySelector('.main-view')
+// var allViews = document.querySelector(".view")
+var homeView = document.querySelector('.home-view')
+// var fighterView = document.querySelector('.fighter-view')
 var classicView = document.querySelector('.classic-view')
 var difficultView = document.querySelector('.difficult-view')
+var main = document.querySelector('main')
 
 // EVENT LISTENERS
 
 window.onload = (event) => {
   createGame(human, computer);
-  console.log(game)
 };
 
-classicBtn.addEventListener('click', function() {
-  updateClassicGame();
-  hide(mainView);
-  show(classicView);
+homeView.addEventListener('click', function(event) {
+  hide(homeView);
+  if (event.target.id === "classic-button") {
+    updateClassicGame();
+    show(classicView);
+  } else if (event.target.id === "difficult-button") {
+    updateDifficultGame();
+    show(difficultView);
+  }
   console.log(game)
 })
 
-difficultBtn.addEventListener('click', function() {
-  updateDifficultGame();
-  hide(mainView);
-  show(difficultView);
-  console.log(game)
-})
-
-classicView.addEventListener('click', function(event) {
+main.addEventListener('click', function(event) {
   if (event.target.classList.contains("fighters")) {
-    game.humanFighter = event.target.alt
-    console.log("classic!");
-    console.log(game)
+        game.humanFighter = event.target.alt
+        game.computerFighter = getRandomFighter(game.fighterOptions)
+        console.log(game)
   }
-});
+}) 
 
-difficultView.addEventListener('click', function(event) {
-  if (event.target.classList.contains("fighters")) {
-    game.humanFighter = event.target.alt
-    console.log("difficult!");
-    console.log(game)
-  }
-});
+// classicView.addEventListener('click', function(event) {
+//   if (event.target.classList.contains("fighters")) {
+//         game.humanFighter = event.target.alt
+//         game.computerFighter = getRandomFighter(game.fighterOptions)
+//         console.log(game)
+//   }
+// }) 
+
+// difficultView.addEventListener('click', function(event) {
+//   if (event.target.classList.contains("fighters")) {
+//         game.humanFighter = event.target.alt
+//         game.computerFighter = getRandomFighter(game.fighterOptions)
+//         console.log(game)
+//   }
+// }) 
+
 
 // FUNCTIONS
 function createPlayer(name, token, wins = 0) {
