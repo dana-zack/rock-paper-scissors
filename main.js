@@ -9,6 +9,7 @@ var classicView = document.querySelector('.classic-view');
 var difficultView = document.querySelector('.difficult-view');
 var main = document.querySelector('main');
 var fighterView = document.querySelector('.fighter-view');
+var battleView = document.querySelector('.battle-view');
 
 // EVENT LISTENERS
 
@@ -18,8 +19,10 @@ homeView.addEventListener('click', function(event) {
 })
 
 fighterView.addEventListener('click', function(event) {
-  hide(fighterView)
-  selectFighters(event)
+  hide(fighterView);
+  selectFighters(event);
+  declareOutcome();
+  show(battleView);
 })
 
 // FUNCTIONS
@@ -77,37 +80,28 @@ function selectFighters(event) {
   }
 }
 
+function determineWinner() {
+  if ((game.humanFighter === "rock" && game.computerFighter === ("scissors" || "lizzard")) ||
+    (game.humanFighter === "paper" && game.computerFighter === ("rock" || "alien")) ||
+    (game.humanFighter === "scissors" && game.computerFighter === ("paper" || "lizzard")) ||
+    (game.humanFighter === "lizzard" && game.computerFighter === ("paper" || "alien")) ||
+    (game.humanFighter === "alien" && game.computerFighter === ("scissors" || "rock"))) {
+    game.human.wins += 1;
+  } else {
+    game.computer.wins +=1;
+  }
+}
 
-
+function declareOutcome () {
+  if (game.humanFighter !== game.computerFighter) {
+    determineWinner()
+  } else {
+    console.log("It's a draw!")
+  }
+}
 
 
 // ===============================================================
-
-// function determineWinner (human, computer) {
-//   if ((human.fighter === "rock" && computer.fighter === ("scissors" || "lizzard")) ||
-//       (human.fighter === "paper" && computer.fighter === ("rock" || "alien")) ||
-//       (human.fighter === "scissors" && computer.fighter === ("paper" || "lizzard")) ||
-//       (human.fighter === "lizzard" && computer.fighter === ("paper" || "alien")) ||
-//       (human.fighter === "alien" && computer.fighter === ("scissors" || "rock"))) {
-//     human.wins += 1;
-//   } else {
-//     computer.wins += 1;
-//   }
-// }
-
-// function declareOutcome (human, computer) {
-//   if (human.fighter !== computer.fighter) {
-//     determineWinner(human, computer)
-//   } else {
-//     console.log("It's a draw!")
-//   }
-// }
-
-// function playGame(human, computer, game) {
-//   humanSelectsFighter("rock")
-//   computerSelectsFighter()
-//   declareOutcome(human, computer)
-// }
 
 /*
 Final product will have 3 event listeners
