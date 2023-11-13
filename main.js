@@ -17,11 +17,11 @@ var changeGameBtn = document.querySelector(".change-game-btn");
 var mainView = document.querySelector("main")
 
 var images = ["<img class='fighters rock' src='assets/rock.png' alt='rock'></img>", "<img class='fighters paper' src='assets/happy-paper.png' alt='paper'></img>", "<img class='fighters scissors' src='assets/happy-scissors.png' alt='scissors'>", "<img class='fighters lizard' src='assets/lizard.png' alt='lizard'></img>", "<img class='fighters alien' src='assets/happy-alien.png' alt='alien'></img>"];
-var rock = "<img class='fighters' id='rock' src='assets/rock.png' alt='rock'></img>";
-var paper = "<img class='fighters' id='paper' src='assets/happy-paper.png' alt='paper'></img>";
-var scissors = "<img class='fighters' id='scissors' src='assets/happy-scissors.png' alt='scissors'>";
-var lizard = "<img class='fighters' id='lizard' src='assets/lizard.png' alt='lizard'></img>";
-var alien = "<img class='fighters' id='alien' src='assets/happy-alien.png' alt='alien'></img>";
+var rock = "<img class='selected-fighters' id='rock' src='assets/rock.png' alt='rock'></img>";
+var paper = "<img class='selected-fighters' id='paper' src='assets/happy-paper.png' alt='paper'></img>";
+var scissors = "<img class='selected-fighters' id='scissors' src='assets/happy-scissors.png' alt='scissors'>";
+var lizard = "<img class='selected-fighters' id='lizard' src='assets/lizard.png' alt='lizard'></img>";
+var alien = "<img class='selected-fighters' id='alien' src='assets/happy-alien.png' alt='alien'></img>";
 
 
 
@@ -46,10 +46,7 @@ fighterView.addEventListener('click', function(event) {
 })
 
 changeGameBtn.addEventListener('click', function() {
-  hide(fighterView);
-  hide(classicView);
-  hide(difficultView);
-  show(homeView)
+  switchToHome();
   hide(changeGameBtn)
 })
 
@@ -172,6 +169,13 @@ function switchToDifficult() {
   show(fighterView);
   hide(classicView);
   show(difficultView)
+}
+
+function switchToHome(){
+  hide(fighterView);
+  hide(classicView);
+  hide(difficultView);
+  show(homeView)
 }
 
 // ===============================================================
