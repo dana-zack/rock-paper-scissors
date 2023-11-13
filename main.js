@@ -9,19 +9,21 @@ var classicView = document.querySelector('.classic-view');
 var difficultView = document.querySelector('.difficult-view');
 var fighterView = document.querySelector('.fighter-view');
 var battleView = document.querySelector('.battle-view');
-var humanWins = document.querySelector('.human-wins')
-var computerWins = document.querySelector('.computer-wins')
-var winnerAnnouncement = document.querySelector(".declare-winner")
-var battleContainer = document.querySelector(".battle-container")
-// var humanPick = document.querySelector(".human-pick")
-// var computerPick = document.querySelector(".computer-pick")
+var humanWins = document.querySelector('.human-wins');
+var computerWins = document.querySelector('.computer-wins');
+var winnerAnnouncement = document.querySelector(".declare-winner");
+var battleContainer = document.querySelector(".battle-container");
+
+var images = ["<img class='fighters rock' src='assets/rock.png' alt='rock'></img>", "<img class='fighters paper' src='assets/happy-paper.png' alt='paper'></img>", "<img class='fighters scissors' src='assets/happy-scissors.png' alt='scissors'>", "<img class='fighters lizard' src='assets/lizard.png' alt='lizard'></img>", "<img class='fighters alien' src='assets/happy-alien.png' alt='alien'></img>"];
+var rock = "<img class='fighters' id='rock' src='assets/rock.png' alt='rock'></img>";
+var paper = "<img class='fighters' id='paper' src='assets/happy-paper.png' alt='paper'></img>";
+var scissors = "<img class='fighters' id='scissors' src='assets/happy-scissors.png' alt='scissors'>";
+var lizard = "<img class='fighters' id='lizard' src='assets/lizard.png' alt='lizard'></img>";
+var alien = "<img class='fighters' id='alien' src='assets/happy-alien.png' alt='alien'></img>";
 
 
-var rock = "<img class='fighters rock' src='assets/rock.png' alt='rock'></img>"
-var paper = "<img class='fighters paper' src='assets/happy-paper.png' alt='paper'></img>"
-var scissors = "<img class='fighters scissors' src='assets/happy-scissors.png' alt='scissors'>"
-var lizard = "<img class='fighters lizard' src='assets/lizard.png' alt='lizard'></img>"
-var alien = "<img class='fighters alien' src='assets/happy-alien.png' alt='alien'></img>"
+
+
 
 // EVENT LISTENERS
 
@@ -35,6 +37,7 @@ fighterView.addEventListener('click', function(event) {
   declareOutcome(event);
   show(battleView);
   displayWinner(event);
+  resetGame();
 })
 
 // FUNCTIONS
@@ -88,17 +91,17 @@ function getRandomFighter(fighters) {
 
 function selectFighters(event) {
   if (event.target.classList.contains("fighters")) {
-    game.humanFighter = event.target.alt;
+    game.humanFighter = event.target.id;
     game.computerFighter = getRandomFighter(game.fighterOptions);
     console.log(game);
   }
 }
 
 function determineWinner() {
-  if ((game.humanFighter === "rock" && game.computerFighter === ("scissors" || "lizzard")) ||
+  if ((game.humanFighter === "rock" && game.computerFighter === ("scissors" || "lizard")) ||
     (game.humanFighter === "paper" && game.computerFighter === ("rock" || "alien")) ||
-    (game.humanFighter === "scissors" && game.computerFighter === ("paper" || "lizzard")) ||
-    (game.humanFighter === "lizzard" && game.computerFighter === ("paper" || "alien")) ||
+    (game.humanFighter === "scissors" && game.computerFighter === ("paper" || "lizard")) ||
+    (game.humanFighter === "lizard" && game.computerFighter === ("paper" || "alien")) ||
     (game.humanFighter === "alien" && game.computerFighter === ("scissors" || "rock"))) {
     game.human.wins += 1;
     humanWins.innerText = `Wins: ${game.human.wins}`;
@@ -111,7 +114,6 @@ function determineWinner() {
 }
 
 function declareOutcome(event) {
-  battleContainer.innerHTML = `${event.target}`;
   if (game.humanFighter !== game.computerFighter) {
     determineWinner();
   } else {
@@ -121,7 +123,7 @@ function declareOutcome(event) {
 
 function displayWinner(event) {
   for (var i = 0; i < difficultFighters.length; i++) {
-    if (event.target.classList.contains(difficultFighters[i])) {
+    if (event.target.id === difficultFighters[i]) {
       var humanPick = eval(difficultFighters[i]);
     }
     if (game.computerFighter === (difficultFighters[i])) {
@@ -131,6 +133,21 @@ function displayWinner(event) {
   }
 }
 
+function resetGame() {
+  setTimeout(() => {
+    hide(battleView);
+    show(fighterView);
+    }, 3000)
+  if (game.gameType === "classic") {
+    setTimeout(() => {
+    show(classicView)
+    }, 3000)
+  } else {
+    setTimeout(() => {
+    show(difficultView);
+    }, 3000)
+  }
+}
 
 // ===============================================================
 
