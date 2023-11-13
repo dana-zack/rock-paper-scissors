@@ -13,6 +13,7 @@ var humanWins = document.querySelector('.human-wins');
 var computerWins = document.querySelector('.computer-wins');
 var winnerAnnouncement = document.querySelector(".declare-winner");
 var battleContainer = document.querySelector(".battle-container");
+var changeGameBtn = document.querySelector(".change-game-btn");
 
 var images = ["<img class='fighters rock' src='assets/rock.png' alt='rock'></img>", "<img class='fighters paper' src='assets/happy-paper.png' alt='paper'></img>", "<img class='fighters scissors' src='assets/happy-scissors.png' alt='scissors'>", "<img class='fighters lizard' src='assets/lizard.png' alt='lizard'></img>", "<img class='fighters alien' src='assets/happy-alien.png' alt='alien'></img>"];
 var rock = "<img class='fighters' id='rock' src='assets/rock.png' alt='rock'></img>";
@@ -29,6 +30,7 @@ var alien = "<img class='fighters' id='alien' src='assets/happy-alien.png' alt='
 
 homeView.addEventListener('click', function(event) {
   updateGame(event);
+  show(changeGameBtn)
 })
 
 fighterView.addEventListener('click', function(event) {
@@ -38,6 +40,12 @@ fighterView.addEventListener('click', function(event) {
   show(battleView);
   displayWinner(event);
   resetGame();
+})
+
+changeGameBtn.addEventListener('click', function() {
+  hide(fighterView);
+  show(homeView)
+  hide(changeGameBtn)
 })
 
 // FUNCTIONS
@@ -74,13 +82,11 @@ function updateGame(event) {
   if (event.target.id === "classic-button") {
     game.gameType = "classic";
     game.fighterOptions = classicFighters;
-    hide(homeView);
-    show(classicView);
+    switchToClassic();
   } else if (event.target.id === "difficult-button") {
     game.gameType = "difficult";
     game.fighterOptions = difficultFighters;
-    hide(homeView);
-    show(difficultView);
+    switchToDifficult();
   }
   return game;
 }
@@ -147,6 +153,20 @@ function resetGame() {
     show(difficultView);
     }, 3000)
   }
+}
+
+function switchToClassic() {
+  hide(homeView);
+  show(fighterView);
+  hide(difficultView)
+  show(classicView);
+}
+
+function switchToDifficult() {
+  hide(homeView);
+  show(fighterView);
+  hide(classicView);
+  show(difficultView)
 }
 
 // ===============================================================
