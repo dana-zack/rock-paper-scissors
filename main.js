@@ -3,26 +3,38 @@ var human = createPlayer("human", "👩🏽");
 var computer = createPlayer("Computer", "💻");
 var game = createGame(human, computer);
 var classicFighters = ["rock", "paper", "scissors"];
-var difficultFighters = ["rock", "paper", "scissors", "lizzard", "alien"];
+var difficultFighters = ["rock", "paper", "scissors", "lizard", "alien"];
 var homeView = document.querySelector('.home-view');
 var classicView = document.querySelector('.classic-view');
 var difficultView = document.querySelector('.difficult-view');
-var main = document.querySelector('main');
 var fighterView = document.querySelector('.fighter-view');
 var battleView = document.querySelector('.battle-view');
+var humanWins = document.querySelector('.human-wins')
+var computerWins = document.querySelector('.computer-wins')
+var winnerAnnouncement = document.querySelector(".declare-winner")
+var battleContainer = document.querySelector(".battle-container")
+// var humanPick = document.querySelector(".human-pick")
+// var computerPick = document.querySelector(".computer-pick")
+
+
+var rock = "<img class='fighters rock' src='assets/rock.png' alt='rock'></img>"
+var paper = "<img class='fighters paper' src='assets/happy-paper.png' alt='paper'></img>"
+var scissors = "<img class='fighters scissors' src='assets/happy-scissors.png' alt='scissors'>"
+var lizard = "<img class='fighters lizard' src='assets/lizard.png' alt='lizard'></img>"
+var alien = "<img class='fighters alien' src='assets/happy-alien.png' alt='alien'></img>"
 
 // EVENT LISTENERS
 
 homeView.addEventListener('click', function(event) {
-  hide(homeView);
   updateGame(event);
 })
 
 fighterView.addEventListener('click', function(event) {
   hide(fighterView);
   selectFighters(event);
-  declareOutcome();
+  declareOutcome(event);
   show(battleView);
+  displayWinner(event);
 })
 
 // FUNCTIONS
@@ -59,10 +71,12 @@ function updateGame(event) {
   if (event.target.id === "classic-button") {
     game.gameType = "classic";
     game.fighterOptions = classicFighters;
+    hide(homeView);
     show(classicView);
   } else if (event.target.id === "difficult-button") {
     game.gameType = "difficult";
     game.fighterOptions = difficultFighters;
+    hide(homeView);
     show(difficultView);
   }
   return game;
@@ -87,16 +101,33 @@ function determineWinner() {
     (game.humanFighter === "lizzard" && game.computerFighter === ("paper" || "alien")) ||
     (game.humanFighter === "alien" && game.computerFighter === ("scissors" || "rock"))) {
     game.human.wins += 1;
+    humanWins.innerText = `Wins: ${game.human.wins}`;
+    winnerAnnouncement.innerText = `Human won this round!`;
   } else {
     game.computer.wins +=1;
+    computerWins.innerText = `Wins: ${game.computer.wins}`;
+    winnerAnnouncement.innerText = `Computer won this round!`;
   }
 }
 
-function declareOutcome () {
+function declareOutcome(event) {
+  battleContainer.innerHTML = `${event.target}`;
   if (game.humanFighter !== game.computerFighter) {
-    determineWinner()
+    determineWinner();
   } else {
-    console.log("It's a draw!")
+    winnerAnnouncement.innerText = `It's a draw!`;
+  }
+}
+
+function displayWinner(event) {
+  for (var i = 0; i < difficultFighters.length; i++) {
+    if (event.target.classList.contains(difficultFighters[i])) {
+      var humanPick = eval(difficultFighters[i]);
+    }
+    if (game.computerFighter === (difficultFighters[i])) {
+      var computerPick = eval(difficultFighters[i]);
+    }
+    battleContainer.innerHTML = humanPick + computerPick
   }
 }
 
