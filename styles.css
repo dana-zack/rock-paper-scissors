@@ -1,8 +1,10 @@
+/* ELEMENTS */
+
 body {
   display: flex;
   background-color: rgb(31, 31, 59);
   color: white;
-  height: 883px;
+  height: 993px;
   font-family: Georgia;
 }
 
@@ -33,14 +35,20 @@ h2 {
   font-size: 50px;
 }
 
+/* CLASSES */
+
 .view {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.hidden {
+  display: none;
+}
+
 .classic-fighters-container, .difficult-fighters-container, .battle-container {
-  margin: 140px;
+  margin: 165px;
 }
 
 .difficult-fighters-container {
@@ -49,7 +57,7 @@ h2 {
   align-items: center;
 }
 
-.fighters, .selected-fighters {
+.fighters {
   width: 180px;
   margin: 20px;
 }
@@ -59,8 +67,9 @@ h2 {
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
+.selected-fighters {
+  width: 260px;
+  margin: 20px;
 }
 
 .main-buttons {
@@ -90,13 +99,15 @@ h2 {
 }
 
 .change-game-btn {
-  margin: 500px 0 0 0;
+  margin: 600px 0 0 0;
   border-radius: 1em;
   border: none;
   background-color: rgb(31, 31, 59);
   color: white;
-  height: 50px;
-  width: 200px;
+  height: 75px;
+  width: 250px;
+  font-family: Georgia;
+  font-size: 25px;
 }
 
 .change-game-btn:hover {
@@ -109,6 +120,8 @@ h2 {
   font-size: 65px;
   margin: 20px 0 0 0;
 }
+
+/* IDS */
 
 #difficult-button {
   height: 210px;

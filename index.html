@@ -6,7 +6,7 @@
     <title>Rock Paper Scissors!</title>
   </head>
   <body>
-    <aside class="left-display">
+    <aside>
       <p class="player-icons">👩🏽</p>
       <h2>Human</h2>
       <p class="human-wins">Wins: 0</p>
@@ -31,41 +31,36 @@
           <br>alien > scissors & rock
         </button>
       </section>
-      <section class="view fighter-view">
+      <section class="view both-game-views">
         <section class="view classic-view hidden">
           <h2>Select your fighter:</h2>
           <div class="classic-fighters-container">
-            <img class="fighters" id="rock" src="assets/rock.png" alt="rock">
-            <img class="fighters" id ="paper" src="assets/happy-paper.png" alt="paper">
-            <img class="fighters" id="scissors" src="assets/happy-scissors.png" alt="scissors">
+            <img class="fighters" src="assets/rock.png" alt="rock">
+            <img class="fighters" src="assets/happy-paper.png" alt="paper">
+            <img class="fighters" src="assets/happy-scissors.png" alt="scissors">
           </div>
         </section>
         <section class="view fighter-view difficult-view hidden">
           <h2>Select your fighter:</h2>
           <div class="difficult-fighters-container">
             <div class="difficult-fighters-group-1">
-              <img class="fighters" id="rock" src="assets/rock.png" alt="rock">
-              <img class="fighters" id="paper" src="assets/happy-paper.png" alt="paper">
-              <img class="fighters" id="scissors" src="assets/happy-scissors.png" alt="scissors">
+              <img class="fighters" src="assets/rock.png" alt="rock">
+              <img class="fighters" src="assets/happy-paper.png" alt="paper">
+              <img class="fighters" src="assets/happy-scissors.png" alt="scissors">
             </div>
             <div class="difficult-fighters-group-2">
-              <img class="fighters" id="lizard" src="assets/lizard.png" alt="lizard">
-              <img class="fighters" id= "alien" src="assets/happy-alien.png" alt="alien">
+              <img class="fighters" src="assets/lizard.png" alt="lizard">
+              <img class="fighters" src="assets/happy-alien.png" alt="alien">
             </div>
           </div>
         </section>
       </section>
       <section class="view battle-view hidden">
         <h2 class="declare-winner">
-          <!-- declation of winner will appear here -->
+          <!-- declation of winner will insert here -->
         </h2>
         <div class="battle-container">
-            <div class="human-pick">
-              <!-- human pick will insert here -->
-            </div>
-            <div class="computer-pick">
-              <!-- computer pick will insert here -->
-            </div>
+          <!-- selected fighters will insert here -->
         </div>
       </section>
     </main>
