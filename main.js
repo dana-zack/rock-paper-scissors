@@ -13,13 +13,7 @@ var main = document.querySelector('main')
 
 homeView.addEventListener('click', function(event) {
   hide(homeView);
-  if (event.target.id === "classic-button") {
-    updateClassicGame();
-    show(classicView);
-  } else if (event.target.id === "difficult-button") {
-    updateDifficultGame();
-    show(difficultView);
-  }
+  updateGame(event);
 })
 
 main.addEventListener('click', function(event) {
@@ -61,15 +55,16 @@ function show(element) {
   element.classList.remove("hidden");
 }
 
-function updateClassicGame() {
-  game.gameType = "classic";
-  game.fighterOptions = classicFighters;
-  return game;
-}
-
-function updateDifficultGame() {
-  game.gameType = "difficult";
-  game.fighterOptions = difficultFighters;
+function updateGame(event) {
+  if (event.target.id === "classic-button") {
+    game.gameType = "classic";
+    game.fighterOptions = classicFighters;
+    show(classicView);
+  } else if (event.target.id === "difficult-button") {
+    game.gameType = "difficult";
+    game.fighterOptions = difficultFighters;
+    show(difficultView);
+  }
   return game;
 }
 
