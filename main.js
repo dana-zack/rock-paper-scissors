@@ -14,6 +14,7 @@ var computerWins = document.querySelector('.computer-wins');
 var winnerAnnouncement = document.querySelector(".declare-winner");
 var battleContainer = document.querySelector(".battle-container");
 var changeGameBtn = document.querySelector(".change-game-btn");
+var mainView = document.querySelector("main")
 
 var images = ["<img class='fighters rock' src='assets/rock.png' alt='rock'></img>", "<img class='fighters paper' src='assets/happy-paper.png' alt='paper'></img>", "<img class='fighters scissors' src='assets/happy-scissors.png' alt='scissors'>", "<img class='fighters lizard' src='assets/lizard.png' alt='lizard'></img>", "<img class='fighters alien' src='assets/happy-alien.png' alt='alien'></img>"];
 var rock = "<img class='fighters' id='rock' src='assets/rock.png' alt='rock'></img>";
@@ -34,16 +35,20 @@ homeView.addEventListener('click', function(event) {
 })
 
 fighterView.addEventListener('click', function(event) {
-  hide(fighterView);
-  selectFighters(event);
-  declareOutcome(event);
-  show(battleView);
-  displayWinner(event);
-  resetGame();
+  if (event.target.classList.contains("fighters")) {
+    hide(fighterView);
+    selectFighters(event);
+    declareOutcome(event);
+    show(battleView);
+    displayWinner(event);
+    resetGame();
+  }
 })
 
 changeGameBtn.addEventListener('click', function() {
   hide(fighterView);
+  hide(classicView);
+  hide(difficultView);
   show(homeView)
   hide(changeGameBtn)
 })
@@ -96,11 +101,9 @@ function getRandomFighter(fighters) {
 }
 
 function selectFighters(event) {
-  if (event.target.classList.contains("fighters")) {
     game.humanFighter = event.target.id;
     game.computerFighter = getRandomFighter(game.fighterOptions);
     console.log(game);
-  }
 }
 
 function determineWinner() {
@@ -136,6 +139,7 @@ function displayWinner(event) {
       var computerPick = eval(difficultFighters[i]);
     }
     battleContainer.innerHTML = humanPick + computerPick
+    hide(changeGameBtn);
   }
 }
 
@@ -143,6 +147,7 @@ function resetGame() {
   setTimeout(() => {
     hide(battleView);
     show(fighterView);
+    show(changeGameBtn);
     }, 3000)
   if (game.gameType === "classic") {
     setTimeout(() => {
