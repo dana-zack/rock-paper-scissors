@@ -22,7 +22,6 @@ I was the sole contributor to this project.
 * Use my problem solving process to break down large problems, solve things step by step, and trust myself to not rely on an outside “answer” to a logical challenge
 
 ### Wins + Challenges:
-[//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
 My first win for this project was successfully trying a new project approach by thinking out and planning the full data model process prior to incorporating any DOM manipulation. My second win was finessing my HTML and CSS to make them as DRY as possible. My third win was reaching full functionality with my javascript code without any bugs.
 
 A challenge I faced was coming up with a solution for displaying both the selected user fighter choice and the randomly generated computer fighter choice on the final screen. I was able to accomplish this by checking both selected fighters against an array of all possible fighter choices. When a match was found, I accessed the corresponding <img> element by storing it into a variable and then inserted these variables into the battle-container's HTML using the innerHTML property.

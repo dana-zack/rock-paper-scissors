@@ -45,7 +45,6 @@ changeGameBtn.addEventListener('click', function() {
   hide(changeGameBtn);
 })
 
-
 // FUNCTIONS
 function createPlayer(name, token, wins = 0) {
   var player = {
