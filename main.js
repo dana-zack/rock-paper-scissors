@@ -145,15 +145,15 @@ function resetGame() {
     hide(battleView);
     show(bothGameViews);
     show(changeGameBtn);
-    }, 5000)
+    }, 3000)
   if (game.gameType === "classic") {
     setTimeout(() => {
     show(classicView);
-    }, 4000)
+    }, 3000)
   } else {
     setTimeout(() => {
     show(difficultView);
-    }, 4000)
+    }, 3000)
   }
 }
 
