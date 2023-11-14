@@ -25,7 +25,7 @@ var alien = "<img class='selected-fighters' src='assets/happy-alien.png' alt='al
 homeView.addEventListener('click', function(event) {
   if (event.target.classList.contains("main-buttons")) {
     updateGame(event);
-    show(changeGameBtn)
+    show(changeGameBtn);
   }
 })
 
@@ -37,13 +37,12 @@ bothGameViews.addEventListener('click', function(event) {
     show(battleView);
     displayWinner(event);
     resetGame();
-    console.log(game)
   }
 })
 
 changeGameBtn.addEventListener('click', function() {
   switchToHome();
-  hide(changeGameBtn)
+  hide(changeGameBtn);
 })
 
 
@@ -65,7 +64,7 @@ function createGame(human, computer) {
     fighterOptions: [],
     humanFighter: "",
     computerFighter: ""
-  }
+  };
   return game;
   
 }
@@ -136,7 +135,7 @@ function displayWinner(event) {
     if (game.computerFighter === (difficultFighters[i])) {
       var computerPick = eval(difficultFighters[i]);
     }
-    battleContainer.innerHTML = humanPick + computerPick
+    battleContainer.innerHTML = humanPick + computerPick;
     hide(changeGameBtn);
   }
 }
@@ -149,7 +148,7 @@ function resetGame() {
     }, 5000)
   if (game.gameType === "classic") {
     setTimeout(() => {
-    show(classicView)
+    show(classicView);
     }, 4000)
   } else {
     setTimeout(() => {
